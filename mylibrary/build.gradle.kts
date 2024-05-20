@@ -39,3 +39,16 @@ dependencies {
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
 }
+
+publishing {
+	publications {
+		afterEvaluate {
+			register<MavenPublication>("release") {
+				from(components["release"])
+				groupId = "com.github.KeunyoungSong" // GitHub 사용자 이름
+				artifactId = "BottomSheet"
+				version = "1.0"
+			}
+		}
+	}
+}
